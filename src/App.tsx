@@ -1,4 +1,11 @@
 import { useState, useEffect, type ReactNode } from "react";
+import card1 from "./assets/cards/card-1.webp";
+import card2 from "./assets/cards/card-2.webp";
+import card3 from "./assets/cards/card-3.webp";
+import card4 from "./assets/cards/card-4.webp";
+import card5 from "./assets/cards/card-5.webp";
+import card6 from "./assets/cards/card-6.webp";
+import appLogo from "./assets/logo.jpg";
 
 type Tab = "diary" | "home" | "pro" | "profile";
 type Detail = "notifications" | "rating" | "offers" | "settings" | "security" | "support" | "logout" | null;
@@ -237,9 +244,12 @@ const schedules = [
 function Header({ title, subtitle, onNotifications }: { title: string; subtitle?: string; onNotifications: () => void }) {
   return (
     <div className="topbar">
-      <div>
-        {subtitle && <div className="eyebrow">{subtitle}</div>}
-        <div className="page-title">{title}</div>
+      <div className="topbar-left" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <img src={appLogo} alt="Т-Коинс" className="topbar-logo" style={{ width: 44, height: 44, borderRadius: 14, objectFit: 'cover', boxShadow: '0 4px 14px rgba(0,0,0,0.08)' }} />
+        <div>
+          {subtitle && <div className="eyebrow">{subtitle}</div>}
+          <div className="page-title">{title}</div>
+        </div>
       </div>
       <button className="icon-button" aria-label="Уведомления" onClick={onNotifications}>
         <Icon name="bell" size={22} />
@@ -259,15 +269,15 @@ export interface CardDesignItem {
 export const freeCards: CardDesignItem[] = [
   {
     id: "card-2",
-    name: "Т-Банк Космос",
+    name: "Т-Коинс Космос",
     isPro: false,
-    imageSrc: "/cards/card-2.png",
+    imageSrc: card2,
   },
   {
     id: "card-1",
     name: "Классический Мир",
     isPro: false,
-    imageSrc: "/cards/card-1.png",
+    imageSrc: card1,
   },
 ];
 
@@ -276,25 +286,25 @@ export const proCards: CardDesignItem[] = [
     id: "card-3",
     name: "Неон Сити",
     isPro: true,
-    imageSrc: "/cards/card-3.png",
+    imageSrc: card3,
   },
   {
     id: "card-4",
     name: "Изумрудный Драйв",
     isPro: true,
-    imageSrc: "/cards/card-4.png",
+    imageSrc: card4,
   },
   {
     id: "card-5",
     name: "Кибер Джуниор",
     isPro: true,
-    imageSrc: "/cards/card-5.png",
+    imageSrc: card5,
   },
   {
     id: "card-6",
     name: "Премиум Эдишн",
     isPro: true,
-    imageSrc: "/cards/card-6.png",
+    imageSrc: card6,
   },
 ];
 
@@ -404,7 +414,7 @@ function Home({
               <span className="referral-tag">РЕФЕРАЛЬНАЯ ПРОГРАММА</span>
               <span className="referral-bonus-badge">+250 Т‑Коинов</span>
             </div>
-            <strong>Зови друзей в Т‑Банк — получайте бонусы вместе</strong>
+            <strong>Зови друзей в Т‑Коинс — получайте бонусы вместе</strong>
             <span>+250 тебе, а другу — 2 месяца бесплатного обслуживания и +50 Т‑Коинов</span>
           </div>
           <button
@@ -501,8 +511,8 @@ function Footer({ onMessage }: { onMessage: (msg: string) => void }) {
       <div className="footer-top">
         <div className="footer-brand">
           <div className="footer-brand-title">
-            <span className="footer-logo-badge">Т</span>
-            <strong>Т‑Банк Джуниор</strong>
+            <img src={appLogo} alt="Т-Коинс" className="footer-logo-badge-img" style={{ width: 32, height: 32, borderRadius: 10, objectFit: 'cover', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }} />
+            <strong>Т‑Коинс</strong>
           </div>
           <p className="footer-brand-desc">
             Экосистема школьного финтех-банкинга. Интеграция оценок из электронных дневников (МЭШ, РЭШ, Дневник.ру) с бонусной программой накопления Т‑Коинов.
@@ -549,10 +559,10 @@ function Footer({ onMessage }: { onMessage: (msg: string) => void }) {
 
       <div className="footer-bottom">
         <p className="footer-disclaimer">
-          АО «ТБанк». Генеральная лицензия Банка России № 2673. Т‑Коины являются условными единицами бонусной программы лояльности и не являются денежными средствами или криптовалютой. Начисление осуществляется автоматически при подтверждении оценок от верифицированных образовательных систем.
+          АО «Т-Коинс». Генеральная лицензия Банка России № 2673. Т‑Коины являются условными единицами бонусной программы лояльности и не являются денежными средствами или криптовалютой. Начисление осуществляется автоматически при подтверждении оценок от верифицированных образовательных систем.
         </p>
         <div className="footer-copyright">
-          <span>© 2006–2026, АО «ТБанк». Все права защищены.</span>
+          <span>© 2006–2026, «Т-Коинс». Все права защищены.</span>
           <span>ГОСТ Р 57580.1 • Защита персональных данных</span>
         </div>
       </div>
@@ -809,11 +819,11 @@ function ProSection({
       <div className="topbar">
         <div>
           <div className="eyebrow">ПОДПИСКА</div>
-          <div className="page-title">Т-Банк Прошка</div>
+          <div className="page-title">Т-Прошка</div>
         </div>
       </div>
 
-      {/* Top Hero Card: сочный, контрастный, минималистичный Т-Банк стиль */}
+      {/* Top Hero Card */}
       <section className="pro-accent-card stagger-1">
         <div className="pro-card-topbar">
           <div className="pro-badge-pill">
@@ -841,10 +851,10 @@ function ProSection({
             className={`pro-hero-cta-btn ${isSubscribed ? "active" : ""}`}
             onClick={() => {
               if (isSubscribed) {
-                onMessage("Подписка Т-Банк Прошка уже активна");
+                onMessage("Подписка Т-Прошка уже активна");
               } else {
                 setIsSubscribed(true);
-                onMessage("Подписка Т-Банк Прошка подключена");
+                onMessage("Подписка Т-Прошка подключена");
               }
             }}
           >
@@ -869,7 +879,7 @@ function ProSection({
             <div className="plan-table-header">
               <div className="plan-table-type">Обычная подписка</div>
               <div className="plan-table-price">0 Т-Коинов <span>/ всегда</span></div>
-              <div className="plan-table-desc">Базовые возможности для старта в системе Т-Банка</div>
+              <div className="plan-table-desc">Базовые возможности для старта в системе Т-Коинс</div>
             </div>
 
             <ul className="plan-features-list">
@@ -951,7 +961,7 @@ function ProSection({
               className="plan-select-button"
               onClick={() => {
                 setIsSubscribed(true);
-                onMessage("Подписка Т-Банк Прошка активирована");
+                onMessage("Подписка Т-Прошка активирована");
               }}
             >
               {isSubscribed ? "Прошка подключена" : "Перейти на Прошку"}
@@ -1062,7 +1072,7 @@ function ProSection({
                     <AssistantAvatar id={currentAst.id} size={28} />
                   </div>
                   <div className="chat-bubble bot">
-                    <div className="bubble-bot-badge">Т-Банк Прошка</div>
+                    <div className="bubble-bot-badge">Т-Прошка</div>
                     <p className="bubble-text">Привет! Я твой ассистент по аккаунту. Проверил статус Т-Коинов и лимитов — всё готово к анализу.</p>
                     <span className="bubble-time">09:40</span>
                   </div>
@@ -1139,7 +1149,7 @@ function ProSection({
             </div>
           </div>
           <p className="rating-rules-note">
-            Двойка даёт минус по рейтингу, но даётся месяц на реабилитацию по системе 2x рейтинга. В вузе высокий рейтинг открывает стажировку в Т-Банке.
+            Двойка даёт минус по рейтингу, но даётся месяц на реабилитацию по системе 2x рейтинга. В вузе высокий рейтинг открывает стажировку в Т-Коинс.
           </p>
         </div>
       </section>
@@ -1308,8 +1318,8 @@ function ReferralSheet({
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
-        title: "Т-Банк Джуниор — Копи коины за оценки!",
-        text: "Оформляй карту Т-Банк с моим промокодом MISHA500: получай 2 месяца бесплатного обслуживания и 50 Т-Коинов!",
+        title: "Т-Коинс — Копи коины за оценки!",
+        text: "Оформляй карту Т-Коинс с моим промокодом MISHA500: получай 2 месяца бесплатного обслуживания и 50 Т-Коинов!",
         url: window.location.href,
       }).catch(() => handleCopy());
     } else {
@@ -1325,7 +1335,7 @@ function ReferralSheet({
         <div className="sheet-head">
           <div>
             <span className="referral-sheet-kicker">РЕФЕРАЛЬНАЯ СИСТЕМА</span>
-            <strong>Зови друзей в Т‑Банк</strong>
+            <strong>Зови друзей в Т‑Коинс</strong>
           </div>
           <button className="sheet-close" onClick={onClose} aria-label="Закрыть">×</button>
         </div>
