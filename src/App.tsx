@@ -5,7 +5,6 @@ import card3 from "./assets/cards/card-3.webp";
 import card4 from "./assets/cards/card-4.webp";
 import card5 from "./assets/cards/card-5.webp";
 import card6 from "./assets/cards/card-6.webp";
-import appLogo from "./assets/logo.jpg";
 
 type Tab = "diary" | "home" | "pro" | "profile";
 type Detail = "notifications" | "rating" | "offers" | "settings" | "security" | "support" | "logout" | null;
@@ -244,12 +243,9 @@ const schedules = [
 function Header({ title, subtitle, onNotifications }: { title: string; subtitle?: string; onNotifications: () => void }) {
   return (
     <div className="topbar">
-      <div className="topbar-left" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-        <img src={appLogo} alt="Т-Коинс" className="topbar-logo" style={{ width: 44, height: 44, borderRadius: 14, objectFit: 'cover', boxShadow: '0 4px 14px rgba(0,0,0,0.08)' }} />
-        <div>
-          {subtitle && <div className="eyebrow">{subtitle}</div>}
-          <div className="page-title">{title}</div>
-        </div>
+      <div className="topbar-left">
+        {subtitle && <div className="eyebrow">{subtitle}</div>}
+        <div className="page-title">{title}</div>
       </div>
       <button className="icon-button" aria-label="Уведомления" onClick={onNotifications}>
         <Icon name="bell" size={22} />
@@ -511,7 +507,7 @@ function Footer({ onMessage }: { onMessage: (msg: string) => void }) {
       <div className="footer-top">
         <div className="footer-brand">
           <div className="footer-brand-title">
-            <img src={appLogo} alt="Т-Коинс" className="footer-logo-badge-img" style={{ width: 32, height: 32, borderRadius: 10, objectFit: 'cover', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }} />
+            <span className="footer-logo-badge">Т</span>
             <strong>Т‑Коинс</strong>
           </div>
           <p className="footer-brand-desc">
