@@ -756,7 +756,6 @@ body {
 .coins .stat-icon {
   background: #ffdd2d;
   color: #1c1c1e;
-  margin: 0 auto;
 }
 
 .stat-card.rating {
@@ -766,7 +765,6 @@ body {
 .rating .stat-icon {
   background: #1c1c1e;
   color: #ffdd2d;
-  margin: 0 auto;
 }
 
 .stat-link {
@@ -3333,6 +3331,16 @@ button:focus-visible {
 }
 
 @media (max-width: 767px) {
+  /* ЗНАЧКИ В КВАДРАТИКАХ Т-КОИНЫ И Т-РЕЙТИНГ СЛЕВА НА МОБИЛКЕ */
+  .stat-card {
+    text-align: left !important;
+  }
+  .stat-card .stat-icon,
+  .coins .stat-icon,
+  .rating .stat-icon {
+    margin: 0 0 16px 0 !important;
+  }
+
   .app-footer {
     padding-bottom: 96px;
   }
